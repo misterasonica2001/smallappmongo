@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'mongo'
 
 source 'http://rubygems.org'
 
