@@ -1,14 +1,23 @@
-<table class="profile" summary="Profile information">
+﻿<table class="profile" summary="Informații profil">
 	<tr>
 		<td class="main">
 			<h1>
 				<%= gravatar_for @user %>
 				<%= @user.name %>
 			</h1>
+			<%= render 'befriend_form' if signed_in? %>
+			<% unless @user.microposts.empty? %>
+				<table class="microposts" summary="Gânduril utilizatorului">
+					<%= render @microposts %>
+				</table>
+				<%= will_paginate @microposts %>
+			<% end %>
 		</td>
 		<td class="sidebar round">
-			<strong>Name</strong> <%= @user.name %><br />
+			<strong>Nume</strong> <%= @user.name %><br />
 			<strong>URL</strong> <%= link_to @user, @user %>
+			<strong>Gânduri</strong> <%= @user.microposts.count %>
+			<%= render 'shared/stats' %>
 		</td>
 	</tr>	
 </table>

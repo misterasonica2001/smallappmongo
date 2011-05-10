@@ -1,7 +1,19 @@
-<h1>Sample App</h1>
-	<p>
-		This is the home page for the
-		<a href="http://railstutorial.org">Ruby on Rails Tutorial</a>
-		sample application.
-	</p>
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>	
+﻿<% if signed_in? %>
+	<table class="front" summary="Pentru utilizatori înregistrați">
+		<tr>
+			<td class="main">
+				<h1 class="micropost">La ce te gândești?</h1>
+				<%= render 'shared/micropost_form' %>
+				<%= render 'shared/feed' %>
+			</td>
+			<td class="sidebar round">
+				<%= render 'shared/user_info' %>
+				<%= render 'shared/stats' %>
+			</td>
+		</tr>
+	</table>
+<% else %>
+	<h1>Twister</h1>
+
+	<%= link_to "Înscrie-te!", signup_path, :class => "signup_button round" %>
+<% end %>

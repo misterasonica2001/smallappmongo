@@ -1,8 +1,14 @@
 SmallApp::Application.routes.draw do
   get "sessions/new"
 
-  resources :users
+  resources :users do
+		member do
+			get :friends
+		end
+	end
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :microposts, :only => [:create, :destroy]
+  resources :friends, :only => [:create, :destroy]
 
 	match '/contact', :to => 'pages#contact'
 	match '/about', :to => 'pages#about'

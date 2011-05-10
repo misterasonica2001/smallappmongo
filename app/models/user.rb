@@ -13,6 +13,7 @@ class User
 	key :password, String	
 	key :salt, String
 	key :encrypted_password, String
+	key :admin, Boolean, :default => false
 	timestamps!
 
 	validates_presence_of :name, :email, :password, :password_confirmation
@@ -23,9 +24,28 @@ class User
 	validates_length_of :password, :within => 6..40
 	validates_confirmation_of :password
 	
+	attr_accessor :password
 	attr_accessible :name, :email, :password, :password_confirmation
 	
+	has_many :microposts, :dependent => :destroy
+	has_many :friends, :foreign_key => "follower_id",
+							:dependent => :destroy
+	#has_many :following, :through => :relationships, :source => :followed
+	#has_many :reverse_relationships, :foreign_key => "followed_id",
+	#								:class_name => "Relationship",
+	#								:dependent => :destroy
+	#has_many :followers, :through => :reverse_relationships, 
+	#								:source => :follower
+	
 	before_save :encrypt_password
+	#before_save :convert_user
+	
+	def feed
+		# This is preliminary. See Chapter 12 for the full implementation.
+		#Micropost.where(:user_id => BSON::ObjectId("4dbd27037fac1a132c000001")).all
+		#Micropost.find_by_user_id(id)
+		Micropost.from_friends_of_user(self)
+	end
 	
 	def has_password?(submitted_password)
 		encrypted_password == encrypt(submitted_password)
@@ -42,8 +62,26 @@ class User
 		(user && user.salt == cookie_salt) ? user : nil
 	end
 	
+	def is_friend?(followed)
+		friends.find_by_followed_id(followed.id)
+	end
+	
+	def befriend!(to_befriend, current_user_id)
+		friends.create!(:followed_id => to_befriend.id)
+		to_befriend.friends.create!(:followed_id => current_user_id)
+	end
+	
+	def unfriend!(to_unfriend, current_user_id)
+		friends.find_by_followed_id(to_unfriend.id).destroy
+		to_unfriend.friends.find_by_followed_id(current_user_id).destroy
+	end
+	
+	
 	private
-		
+			#def convert_user
+			#	self.user.map!{|m| m.to_mongo}
+			#end
+			
 			def encrypt_password
 				self.salt = make_salt if new_record?
 				self.encrypted_password = encrypt(password)

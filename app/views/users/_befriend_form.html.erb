@@ -1,0 +1,1 @@
+<% unless current_user?(@user) %>	<div id="befriend_form">	<% if current_user.is_friend?(@user) %>		<%= render 'unfriend' %>	<% else %>		<%= render 'befriend' %>	<% end %>	</div><% end %>

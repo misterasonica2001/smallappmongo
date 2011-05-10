@@ -1,0 +1,2 @@
+$("befriend_form").update("<%= escape_javascript(render('users/befriend')) %>")
+$("friends").update('<%= "#{@user.friends.count} prieteni" %>')

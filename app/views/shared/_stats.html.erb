@@ -1,0 +1,14 @@
+﻿<% @user ||= current_user %>
+	<div class="stats">
+		<table summary="Statistici utilizator">
+			<tr>
+				<td>
+					<a href="<%= friends_user_path(@user) %>">
+						<span id="friends" class="stat">
+							<%= pluralize(@user.friends.count, "prieten") %>
+						</span>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
