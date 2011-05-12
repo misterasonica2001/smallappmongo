@@ -1,4 +1,4 @@
-﻿module SessionsHelper
+module SessionsHelper
 
 	def sign_in(user)
 		cookies.permanent.signed[:remember_token] = [user.id, user.salt]
@@ -44,7 +44,7 @@
 		
 		def deny_access
 			store_location
-			redirect_to signin_path, :notice => "Te rugăm să te înregistrezi pentru a accesa această pagină."
+			redirect_to signin_path, :notice => "Te rugam sa te inregistrezi pentru a accesa aceasta pagina."
 		end
 		
 		def store_location
