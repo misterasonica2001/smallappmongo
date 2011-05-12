@@ -1,4 +1,4 @@
-﻿module ApplicationHelper
+module ApplicationHelper
 
 def logo
 	image_tag("logo.png", :alt => "Twister", :class => "round")
@@ -6,7 +6,7 @@ end
 
 #Return a title on a per-page basis
 def title
-	base_title = "Twister - spune ce gândești"
+	base_title = "Twister - spune ce gandesti"
 	if @title.nil?
 		base_title
 	else
