@@ -1,9 +1,9 @@
-﻿<% if object.errors.any? %>
+<% if object.errors.any? %>
 	<div id="error_explanation">
 		<h2><%= pluralize(object.errors.count, "eroare") %>
-			au împiedicat <%= object.class.to_s.underscore.humanize.downcase %> salvarea:
+			au impiedicat <%= object.class.to_s.underscore.humanize.downcase %> salvarea:
 		</h2>
-		<p>Există probleme la următoarele câmpuri:</p>
+		<p>Exista probleme la urmatoarele campuri:</p>
 		<ul>
 			<% object.errors.full_messages.each do |msg| %>
 			<li><%= msg %></li>

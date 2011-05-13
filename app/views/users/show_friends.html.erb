@@ -1,4 +1,4 @@
-﻿<table summary="Detalii despre prieteni">
+<table summary="Detalii despre prieteni">
 	<tr>
 		<td class="main">
 			<h1><%= @title %></h1>
@@ -12,7 +12,7 @@
 		<td class="sidebar round">
 			<strong>Nume</strong> <%= @user.name %><br />
 			<strong>URL</strong> <%= link_to user_path(@user), @user %><br />
-			<strong>Gânduri</strong> <%= @user.microposts.count %>
+			<strong>Ganduri</strong> <%= @user.microposts.count %>
 			<%= render 'shared/stats' %>
 			<% unless @users.empty? %>
 				<% @users.each do |user| %>

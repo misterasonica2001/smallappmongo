@@ -1,4 +1,4 @@
-﻿<h1>Personalizare</h1>
+<h1>Personalizare</h1>
 
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages', :object => f.object %>
@@ -11,15 +11,15 @@
 		<%= f.text_field :email %>
 	</div>
 	<div class="field">
-		<%= f.label "Parolă" %><br />
+		<%= f.label "Parola" %><br />
 		<%= f.password_field :password %>
 	</div>
 	<div class="field">
-		<%= f.label "Repetă parola" %><br />
+		<%= f.label "Repeta parola" %><br />
 		<%= f.password_field :password_confirmation %>
 	</div>
 	<div class="actions">
-		<%= f.submit "Salvează" %>
+		<%= f.submit "Salveaza" %>
 	</div>
 <% end %>
 

@@ -1,14 +1,14 @@
-﻿<tr>
+<tr>
 	<td class="micropost">
 		<span class="content"><%= micropost.content %></span>
 		<span class="timestamp">
-			Spus cu <%= time_ago_in_words(micropost.created_at) %> în urmă.
+			Spus cu <%= time_ago_in_words(micropost.created_at) %> in urma.
 		</span>
 	</td>
 	<% if current_user?(micropost.user) %>
 	<td>
-		<%= link_to "șterge", micropost, :method => :delete,
-										:confirm => "Ești sigur?",
+		<%= link_to "sterge", micropost, :method => :delete,
+										:confirm => "Esti sigur?",
 										:title => micropost.content %>
 	</td>
 	<% end %>

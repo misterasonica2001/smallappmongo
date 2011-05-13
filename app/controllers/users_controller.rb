@@ -1,15 +1,15 @@
-﻿class UsersController < ApplicationController
+class UsersController < ApplicationController
 	before_filter :authenticate, :except => [:show, :new, :create]
 	before_filter :correct_user, :only => [:edit, :update]
 	before_filter :admin_user, :only => :destroy
 	
 	def new
-		@title = "Înscriere"
+		@title = "Inscriere"
 		@user = User.new
 	end
   
 	def index
-		@title = "Toți utilizatorii"
+		@title = "Toti utilizatorii"
 		@users = User.paginate(:page => params[:page])
 	end
   
@@ -23,10 +23,10 @@
 		@user = User.new(params[:user])
 		if @user.save
 			sign_in @user
-			flash[:success] = "Bine ai venit în comunitate!"
+			flash[:success] = "Bine ai venit in comunitate!"
 			redirect_to @user
 		else
-			@title = "Înscriere"
+			@title = "Inscriere"
 			@user.password = ""
 			@user.password_confirmation = ""
 			render 'new'
@@ -51,7 +51,7 @@
 	
 	def destroy
 		User.find(params[:id]).destroy
-		flash[:success] = "Utilizatorul a fost șters."
+		flash[:success] = "Utilizatorul a fost sters."
 		redirect_to users_path
 	end
 	

@@ -1,18 +1,18 @@
-﻿<header>
+<header>
 	<%= link_to logo, root_path %>
 	<nav class="round">
 		<ul>
-			<li><%= link_to "Acasă", root_path %></li>
+			<li><%= link_to "Acasa", root_path %></li>
 			<% if signed_in? %>
 			<li><%= link_to "Utilizatori", users_path %></li>
 			<li><%= link_to "Profil", current_user %></li>
-			<li><%= link_to "Setări", edit_user_path(current_user) %></li>
+			<li><%= link_to "Setari", edit_user_path(current_user) %></li>
 			<% end %>
 			<li><%= link_to "Ajutor", help_path %></li>
 			<% if signed_in? %>
-			<li><%= link_to "Ieșire", signout_path, :method => :delete %></li>
+			<li><%= link_to "Iesire", signout_path, :method => :delete %></li>
 			<% else %>
-			<li><%= link_to "Înregistrare", signin_path %></li>
+			<li><%= link_to "Inregistrare", signin_path %></li>
 			<% end %>
 		</ul>
 	</nav>

@@ -1,11 +1,11 @@
-﻿class MicropostsController < ApplicationController
+class MicropostsController < ApplicationController
 	before_filter :authenticate, :only => [:create, :destroy]
 	before_filter :authorized_user, :only => :destroy
 	
 	def create
 		@micropost = current_user.microposts.build(params[:micropost])
 		if @micropost.save
-			flash[:success] = "Gând adăugat!"
+			flash[:success] = "Gand adaugat!"
 			redirect_to root_path
 		else
 			@feed_items = []

@@ -1,4 +1,4 @@
-﻿<tr>
+<tr>
 	<td class="gravatar">
 		<%= link_to gravatar_for(feed_item.user), feed_item.user %>
 	</td>
@@ -8,13 +8,13 @@
 		</span>
 		<span class="content"><%= feed_item.content %></span>
 		<span class="timestamp">
-			Spus cu <%= time_ago_in_words(feed_item.created_at) %> în urmă.
+			Spus cu <%= time_ago_in_words(feed_item.created_at) %> in urma.
 		</span>
 	</td>
 	<% if current_user?(feed_item.user) %>
 	<td>
-		<%= link_to "șterge", feed_item, :method => :delete,
-										:confirm => "Ești sigur?",
+		<%= link_to "sterge", feed_item, :method => :delete,
+										:confirm => "Esti sigur?",
 										:title => feed_item.content %>
 	</td>
 	<% end %>

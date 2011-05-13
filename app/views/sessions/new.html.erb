@@ -1,15 +1,15 @@
-﻿<h1>Înregistrare</h1>
+<h1>Inregistrare</h1>
 <%= form_for(:session, :url => sessions_path) do |f| %>
 	<div class="field">
 		<%= f.label :email %><br />
 		<%= f.text_field :email %>
 	</div>
 	<div class="field">
-		<%= f.label "Parolă" %><br />
+		<%= f.label "Parola" %><br />
 		<%= f.password_field :password %>
 	</div>
 	<div class="actions">
-		<%= f.submit "Înregistrare" %>
+		<%= f.submit "Inregistrare" %>
 	</div>
 <% end %>
-<p>Ești utilizator nou? <%= link_to "Înscrie-te acum!", signup_path %></p>
+<p>Esti utilizator nou? <%= link_to "Inscrie-te acum!", signup_path %></p>

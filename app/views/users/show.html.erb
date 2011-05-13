@@ -1,4 +1,4 @@
-﻿<table class="profile" summary="Informații profil">
+<table class="profile" summary="Informatii profil">
 	<tr>
 		<td class="main">
 			<h1>
@@ -7,7 +7,7 @@
 			</h1>
 			<%= render 'befriend_form' if signed_in? %>
 			<% unless @user.microposts.empty? %>
-				<table class="microposts" summary="Gânduril utilizatorului">
+				<table class="microposts" summary="Gandurile utilizatorului">
 					<%= render @microposts %>
 				</table>
 				<%= will_paginate @microposts %>
@@ -16,7 +16,7 @@
 		<td class="sidebar round">
 			<strong>Nume</strong> <%= @user.name %><br />
 			<strong>URL</strong> <%= link_to @user, @user %>
-			<strong>Gânduri</strong> <%= @user.microposts.count %>
+			<strong>Ganduri</strong> <%= @user.microposts.count %>
 			<%= render 'shared/stats' %>
 		</td>
 	</tr>	

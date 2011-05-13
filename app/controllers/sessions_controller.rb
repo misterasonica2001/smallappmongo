@@ -1,13 +1,13 @@
-﻿class SessionsController < ApplicationController
+class SessionsController < ApplicationController
   def new
-	@title = "Înregistrare"
+	@title = "Inregistrare"
   end
 
   def create
 	user = User.authenticate(params[:session][:email], params[:session][:password])
 	if user.nil?
-		flash.now[:error] = "Combinație invalidă de nume/parolă"
-		@title = "Înregistrare"	
+		flash.now[:error] = "Combinatie invalida de nume/parola"
+		@title = "Inregistrare"	
 		render 'new'
 	else
 		sign_in user

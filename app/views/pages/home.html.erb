@@ -1,8 +1,8 @@
-﻿<% if signed_in? %>
-	<table class="front" summary="Pentru utilizatori înregistrați">
+<% if signed_in? %>
+	<table class="front" summary="Pentru utilizatori inregistrati">
 		<tr>
 			<td class="main">
-				<h1 class="micropost">La ce te gândești?</h1>
+				<h1 class="micropost">La ce te gandesti?</h1>
 				<%= render 'shared/micropost_form' %>
 				<%= render 'shared/feed' %>
 			</td>
@@ -15,5 +15,5 @@
 <% else %>
 	<h1>Twister</h1>
 
-	<%= link_to "Înscrie-te!", signup_path, :class => "signup_button round" %>
+	<%= link_to "Inscrie-te!", signup_path, :class => "signup_button round" %>
 <% end %>
