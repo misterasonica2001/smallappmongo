@@ -8,6 +8,8 @@ class User
 	
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	
+	set_database_name = "smallmongo"
+	
 	key :name, String
 	key :email, String
 	key :password, String	
